@@ -63,7 +63,6 @@
 - `install {options} source destination` -- copy files (often just compiled) into destination locations.
 ### View / Edit file contents
 - `touch file_name`  -- create empty file.
-- `wc file_name` -- show information about the file: number of lines, word count, byte and characters count. 
 - `cat {options} file_name` -- reads data from the file and gives their content as output.
   - `cat >file_name` - create new file with content,
   - `cat >>file_name` - append content to the end of file_name,
@@ -112,10 +111,6 @@
 - `split {options} file_name` -- split a file into pieces.
 - `csplit {options} file_name` -- split a file into sections determined by context lines.
 - `grep {options} PATTERNS file_name` -- print lines that match patterns.
-- `sum {options} file_name` -- checksum and count the blocks in a file.
-- `cksum {options} file_name` -- checksum and count the bytes in a file.
-- `md5sum {options} file_name` -- compute and check MD5 message digest.
-- `sha1sum {options} file_name` -- compute and check SHA1 message digest.
 - `shuf {options} file_name` --  generate random permutations.
 - `uniq {options} file_name` -- report or omit repeated lines.
 - `comm {options} file_name` -- compare two sorted files line by line.
@@ -123,6 +118,13 @@
 - `cut {options} file_name` -- remove sections from each line of files.
 - `paste {options} file_name` -- merge lines of files.
 - `join {options} file_name1 file_name2` -- join lines of two files on a common field.
+
+### File summary
+- `wc file_name` -- show information about the file: number of lines, word count, byte and characters count. 
+- `sum {options} file_name` -- checksum and count the blocks in a file.
+- `cksum {options} file_name` -- checksum and count the bytes in a file.
+- `md5sum {options} file_name` -- compute and check MD5 message digest.
+- `sha1sum {options} file_name` -- compute and check SHA1 message digest.
 
 ### Compress & extract files
 WIP
