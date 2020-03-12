@@ -9,7 +9,7 @@
     - [Basic commands](#basic-commands)
     - [View / Edit file contents](#view--edit-file-contents)
     - [Archive & Compress & extract files](#archive--compress--extract-files)
-    - [Special file types](#special-file-types)
+    - [Special file types (links)](#special-file-types-links)
     - [File permission](#file-permission)
   - [File system management](#file-system-management)
   - [Process management](#process-management)
@@ -205,7 +205,7 @@ either the gzip or bzip2 compression algorithm.
     
     - **Create tar.gz archive file with `-cvzf` option:**
     ```
-    $ tar -cvzf images_italy_2020.tar.gz /home/user/italy_2020/
+    $ tar cvzf images_italy_2020.tar.gz /home/user/italy_2020/
     ```
     *Above command will create compressed **image_italy_2020.tar.gz** file for **italy_2020** directory in current 
     working directory.*
@@ -214,7 +214,7 @@ either the gzip or bzip2 compression algorithm.
     
     - **Create tar.bz2 archive file with `-cvfj` option:**
     ```
-    $ tar -cvfj images_oslo_2020.tar.bz2 /home/user/oslo_2020/
+    $ tar cvfj images_oslo_2020.tar.bz2 /home/user/oslo_2020/
     ```
     *Above command will create compressed **image_oslo_2020.tar.bz2** file for **oslo_2020** directory in current 
     working directory.*
@@ -228,7 +228,7 @@ either the gzip or bzip2 compression algorithm.
     $ tar -xvf this_is_archived_file.tar -C ~/Desktop/tmp/
     ```
     *Above command will untar **this_is_archived_file.tar** file in current working directory. We can use *`-C`* option to
-    untar in a different directory, e.x. **~/Desktop/tmp/***
+    untar in a different directory, e.x. **~/Desktop/tmp/**. With `-xvf` option we can also extract .tar.gz or .tar.bz2 file.*
     
     ---
     
@@ -254,10 +254,61 @@ either the gzip or bzip2 compression algorithm.
     ```
     *Above command will append **paris.jpg** file to an archive tar file called **photos_france.tar**. The command tar does not
     support appending files to compressed tar.gz or tar.bz2 files.*
-### Special file types
-WIP
+### Special file types (links)
+A **hard link** is a direct link to the data on disk. This means data can be accessed directly via an original filename or a 
+hard link. Both the original file and the hard link are direct links to the data on disk. The use of a hard link allows 
+multiple filenames to be associated with the same data on disk.
+
+A **symbolic link** (also sometimes known as a soft link) does not link directly to the data on disk but to another link to the 
+data on disk. On most operating systems folders may only be linked using a symbolic link.
+- **`ln`**`{OPTION}... {TARGET} {FILE}` -- make links between files (if the -s option is not specified, it will create 
+hard link).
+  - Options (most popular):
+    - *s -* create symbolic link instead of hard link.
+- **`readlink`**`{OPTIONS}... {FILE}...` -- print resolved symbolic links or canonical file names.
+- **`unlink`**`{FILE}` -- remove the specified file.
 ### File permission
-WIP
+Every file and directory on Linux system is assigned 3 types of owner, given below:
+- **User** - Who is the owner of a file. By default, the person who created a file becomes its
+owner,
+- **Group** - Can contain multiple users. All users belonging to a group will have the same 
+access permissions to the file. Suppose you have a project where a number of people require 
+access to a file. Instead of manually assigning permissions to each user, you could add all 
+users to a group, and assign group permission to file such that only this group members and
+no one else can read or modify the files.
+- **Others** - Any other user who has access to a file. This person has neither created the
+file, nor he belongs to a user group who could own the file. Practically, it means everybody
+else. 
+
+In Linux, every file and directory has it's own three permissions defined for all the 3 owners
+discussed above:
+- **Read** - This permission allows you to open and read a file,
+- **Write** - The write permission gives you the authority to modify the contents of a file. 
+The write permission on a directory gives you the authority to add, remove and rename files 
+stored in the directory,
+- **Execute** - In Linux, you cannot run a program unless the execute permission is
+set. If the execute permission is not set, you might still be able to see/modify the program
+code(provided read & write permissions are set), but not run it.
+
+The table below gives all possible combinations of a file permission that each file can have:
+
+| Number        | Symbol          | Permission              |        
+| :------------:|:---------------:|:------------------------|
+| 0             | ---             | no permission           |
+| 1             | --x             | execute                 |
+| 2             | -w-             | write                   |
+| 3             | -wx             | write and execute       |
+| 4             | r--             | read                    |
+| 5             | r-x             | read and execute        |
+| 6             | rw-             | read and write          |
+| 7             | rwx             | read, write and execute |
+
+On the picture below we can see that the owner of the *random_file.txt* has `rw-` permission, the group
+and the others have `r--` permission. The first sign of permission stands for type of the file.
+
+![F_Permission](img/f_permission.png)
+
+ 
 ## File system management
 Work in progress
 ## Process management
