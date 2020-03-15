@@ -361,7 +361,31 @@ recursively for directories.
 specified size.
 
 ## Process management
-Work in progrss
+**`env`**` {OPTION}... {-} {NAME=VALUE}... {COMMAND {ARG}...}` -- Run a program in a modified 
+environment. Executing env with no options displays the current environment variables and their values.
+
+**`kill`**`{OPTION}... <PID>` -- Send a signal to a process.
+
+**`ps`**`{OPTION}`... -- Report a snapshot of he current processes.
+
+**`top`** -- Display Linux processes.
+
+**`watch`**`{OPTIONS}... {COMMAND}` -- Execute a program periodically, showing output fullscreen.
+By default, command is run every 2 seconds and watch will run until interrupted.
+  - Options (most popular):
+    - *d* - highlight the differences between successive updates,
+    - *n* - specify update interval
+ 
+ **`systemctl halt`** -- Halt the system.
+ 
+ **`systemctl poweroff`** -- Power off the system.
+
+**`systemctl reboot`** -- Restart the system.
+
+**` systemctl suspend`** -- Suspend the system.
+
+**`systemctl hibernate`** -- Hibernate the system.
+ 
 ## Managing users, groups and the system
 Work in progress
 ## I/O commands
