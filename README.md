@@ -16,6 +16,8 @@
   - [Network](#network)
   - [Hardware support](#hardware-support)
   - [Other](#other)
+- [Windows Commands](#windows-commands)
+- [Git Commands](#git-commands)
 
 # Linux commands
 
@@ -522,3 +524,24 @@ or (when *user* omitted) for the current user.
 **`factor`**`{NUMBER}` -- Factor numbers.
 
 **`seq`**`{OPTION}... {FIRST} {INCRMENT} {LAST}` -- Print a sequence of numbers.
+
+___
+
+# Windows commands
+
+___
+
+# Git commands
+
+
+
+
+
+
+
+
+
+
+
+
+
