@@ -1,4 +1,4 @@
- ![Linux](img/logo.png)
+ ![Logo](img/Logo.png)
 
 ## Table of contents
 
